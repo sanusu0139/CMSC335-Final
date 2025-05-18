@@ -39,11 +39,11 @@ router.post("/", async(req, res) => {
                         { $set: {inBox: false}}
                       );   
         }else if(!pokemon.inBox){
-            return res.render("Release", {availablePokemon: pokeTable, errorMessage: "This pokemon is not in your box." });
+            return res.render("Release", {availablePokemon: null, errorMessage: "This pokemon is not in your box." });
         }else if(pokemon.equipped){
-            return res.render("Release", {availablePokemon: pokeTable, errorMessage: "This pokemon is equipped. Please deposit it before releasing." });
+            return res.render("Release", {availablePokemon: null, errorMessage: "This pokemon is equipped. Please deposit it before releasing." });
         }else{
-            return res.render("Release", {availablePokemon: pokeTable, errorMessage: "This pokemon does not exist. Please choose a real pokemon." });
+            return res.render("Release", {availablePokemon: null, errorMessage: "This pokemon does not exist. Please choose a real pokemon." });
         }
         const pokemonList = await PokemonModel.find({ inBox: true });
         let pokeTable = '<table border="1">';
