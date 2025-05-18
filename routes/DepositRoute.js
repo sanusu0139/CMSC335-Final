@@ -15,8 +15,8 @@ router.post("/", async (req, res) => {
                 { name: pokemonName },
                 { $set: {equipped: false, inBox: true}}
               );
-        }
             return res.render("Deposit", { errorMessage: null});
+        }
        else{
             return res.render("Deposit", { errorMessage: ` ${pokemonName} is not a pokemon. Please deposit an acutal pokemon` });
        } 
