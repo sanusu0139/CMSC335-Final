@@ -16,13 +16,14 @@ router.post("/", async (req, res) => {
                 { $set: {equipped: false, inBox: true}}
               );
         }
+            return res.render("Deposit", { errorMessage: null});
        else{
             return res.render("Deposit", { errorMessage: ` ${pokemonName} is not a pokemon. Please deposit an acutal pokemon` });
        } 
     }catch(error){
         console.error(error);
     }
-    res.render("Deposit", { errorMessage: null});
+    res.render("Deposit", { errorMessage: "An error has occured"});
 });
 
 module.exports = router;
