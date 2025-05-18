@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
             pokeTable += `<tr><td>${pokemon.name}</td><td>${skillList}</td></tr>`;
         }
         pokeTable += '</table>';
-        res.render("Equipped", {pokeTable: pokeTable});
+        return res.render("Equipped", {pokeTable: pokeTable});
     }catch(error){
         console.log(error);
     }
