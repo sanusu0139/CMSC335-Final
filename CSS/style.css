@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Honk:MORF,SHLN@0,6.2&display=swap');
+
+p{
+    
+    color: blue;
+}
+.homePageText{
+    color: black;
+    font-size:xx-large;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+}
