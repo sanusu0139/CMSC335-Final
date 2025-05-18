@@ -47,7 +47,6 @@ app.get("/", async (req, res) => {
 	const response = await fetch(url, options);
 	const result = await response.json();
         const pokemonList = Object.values(result.items);
-	await PokemonModel.updateMany({}, { $set: { equipped: false, inBox: false }});
         for (const mon of pokemonList) {
             const existing = await PokemonModel.findOne({ name: mon.name });
         if (!existing) {
