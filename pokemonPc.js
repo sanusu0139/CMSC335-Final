@@ -68,8 +68,8 @@ app.get("/UserGuide", (req, res) =>{
 });
 
 
-const portNum = process.env.PORTNUM
-const server = app.listen(portNum, () => {
+const portNum = process.env.PORT || 3000
+const server = app.listen(PORT, () => {
     console.log(`Web server started and running at http://localhost:${portNum}`);
     process.stdout.write("Type stop to shutdown the server: ");
 });
