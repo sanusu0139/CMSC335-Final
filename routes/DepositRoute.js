@@ -22,8 +22,8 @@ router.post("/", async (req, res) => {
        } 
     }catch(error){
         console.error(error);
+        res.render("Deposit", { errorMessage: "An error has occured"});
     }
-    res.render("Deposit", { errorMessage: "An error has occured"});
 });
 
 module.exports = router;
