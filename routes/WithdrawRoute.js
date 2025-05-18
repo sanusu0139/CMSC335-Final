@@ -49,7 +49,7 @@ router.post("/", async(req, res) => {
         }else{
             return res.render("Withdraw", {availablePokemon: pokeTable, errorMessage: "This pokemon does not exist. Please choose a real pokemon." });
         }
-        res.render("Withdraw", {availablePokemon: pokeTable, errorMessage: null});
+        return res.render("Withdraw", {availablePokemon: pokeTable, errorMessage: null});
     }catch(error){
         console.error(error);
     }
