@@ -25,6 +25,7 @@ const wdRouter = require("./routes/WithdrawRoute.js");
 const pdRouter = require("./routes/PokedexRoute.js");
 const releaseRouter = require("./routes/ReleaseRoute.js");
 const equipRouter = require("./routes/EquipRoute.js");
+let firstLoad = true;
 
 app.use("/Deposit", depositRouter);
 app.use("/Withdraw", wdRouter);
@@ -47,6 +48,10 @@ app.get("/", async (req, res) => {
 	const response = await fetch(url, options);
 	const result = await response.json();
         const pokemonList = Object.values(result.items);
+	if (isFirstLoad) {
+            await PokemonModel.updateMany({},{ $set: { equipped: false, inBox: false } });
+            isFirstLoad = false;
+        }
         for (const mon of pokemonList) {
             const existing = await PokemonModel.findOne({ name: mon.name });
         if (!existing) {
